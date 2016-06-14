@@ -1,7 +1,7 @@
 {
-  "name": "webpack-starter",
+  "name": "react-redux-todomvc",
   "version": "0.0.1",
-  "description": "Webpack Starter ",
+  "description": "React Redux TodoMVC Application ",
   "main": "index.js",
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/mohan82/webpack-starter.git"
+    "url": "git@github.com/mohan82/react-redux-todomvc.git"
   },
   "keywords": [
     "webpack-starter"
