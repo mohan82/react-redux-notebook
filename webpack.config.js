@@ -14,18 +14,22 @@ var config = {
     module: {
         loaders: [
             {
-                test: /(\.js)$/,
+                test: /(\.js|\.jsx)$/,
                 loader: 'babel',
-                include: path.join(__dirname, 'app'),
-                query: {
-                    presets: ['es2015']
-                }
-            },, {
+                include: path.join(__dirname, 'app')
+            }, {
                 test: /\.scss$/,
                 loader: 'style!css!postcss!sass'
-            },{
+            }, {
+                test: /\.css$/,
+                loader: 'style!css!postcss'
+            },
+            {
                 test: /index.html$/,
                 loader: "file?name=[name].[ext]",
+            }, {
+                test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+                loader: 'url?limit=100000@name=[name][ext]'
             }
         ]
     },
