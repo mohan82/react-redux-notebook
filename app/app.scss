@@ -1,40 +1,41 @@
-$line-height:30px;
-html,body {
-    padding: 0;
-    margin: 0;
+$line-height: 30px;
+html, body {
+  padding: 0;
+  margin: 0;
 }
-
-.page{
-    padding: 0 !important;
-    display: block;
-    background: white;
-    background: -webkit-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
-    background: -moz-linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
-    background: linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
-    background-size: 100% $line-height;
-    height:80%;
-    margin:5% auto 1% 5%;
-        #notes{
-        font: 2em 'AmericanTypewriter', Cambria, Georgia;
-        color: #282625;
-        line-height: $line-height;
-        border-left:1px solid red;
-        margin-left: 10%;
-        height: 100%;
-        padding-left:10px;
-        word-break: break-all;
-        white-space: normal;
-        overflow: hidden;
-
-    }
+.container-fluid {
+  margin-top:2em;
 }
-
+.page {
+  padding: 0 !important;
+  display: block;
+  background: white;
+  background: -webkit-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
+  background: -moz-linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
+  background: linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
+  background-size: 100% $line-height;
+  height: 80%;
+  margin: 5% auto 1% 5%;
+  #notes {
+    font: 2em 'AmericanTypewriter', Cambria, Georgia;
+    color: #282625;
+    line-height: $line-height;
+    border-left: 1px solid red;
+    margin-left: 10%;
+    height: 100%;
+    padding-left: 10px;
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+    outline: 0px solid transparent;
+  }
+}
 
 .animate-page {
-    -webkit-animation-duration: 3s;
-    -webkit-animation-delay: 0s;
-    -moz-animation-duration: 3s;
-    -moz-animation-delay: 0s;
-    -animation-duration:3s;
-    -animation-delay:0s
+  -webkit-animation-duration: 3s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-duration: 3s;
+  -moz-animation-delay: 0s;
+  -animation-duration: 3s;
+  -animation-delay: 0s
 }
