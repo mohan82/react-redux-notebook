@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-todomvc",
+  "name": "react-redux-notebookreact-redux-notebook",
   "version": "0.0.1",
-  "description": "React Redux TodoMVC Application ",
+  "description": "React Redux NoteBook Application ",
   "main": "index.js",
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/mohan82/react-redux-todomvc.git"
+    "url": "git@github.com/mohan82/react-redux-notebook.git"
   },
   "keywords": [
-    "webpack-starter"
+    "redux notebook applicatoin"
   ],
   "author": "Mohan Ambalavanan",
   "license": "MIT",
@@ -30,11 +30,15 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.19.0",
     "jquery": "^2.2.4",
+    "lodash": "^4.13.1",
     "node-sass": "^3.7.0",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "redux": "^3.5.2",
     "sass-loader": "^3.2.0",
     "serve-static": "^1.11.1",
     "style-loader": "^0.13.1",
@@ -42,9 +46,5 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
-  "devDependencies": {
-    "react-redux": "^4.4.5",
-    "react-router": "^2.4.1",
-    "redux": "^3.5.2"
-  }
+  "devDependencies": {}
 }

@@ -1,1 +1,1 @@
-React Redux TODOMVC Application 
+React Redux Simple Note taking Application 
