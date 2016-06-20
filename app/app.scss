@@ -11,14 +11,15 @@ html, body {
   display: block;
   background: white;
   background: -webkit-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
-  background: -moz-linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
-  background: linear-gradient(top, #DFE8EC 0%, white 8%) 0 57px;
+  background: -moz-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
+  background: linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
   background-size: 100% $line-height;
   height: 80%;
   margin: 5% auto 1% 5%;
-  #notes {
+  ul {
     font: 2em 'AmericanTypewriter', Cambria, Georgia;
     color: #282625;
+    display: block;
     line-height: $line-height;
     border-left: 1px solid red;
     margin-left: 10%;
@@ -28,6 +29,9 @@ html, body {
     white-space: normal;
     overflow: hidden;
     outline: 0px solid transparent;
+    li {
+      list-style: none;
+    }
   }
 }
 
