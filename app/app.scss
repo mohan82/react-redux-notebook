@@ -1,5 +1,14 @@
-$line-height: 30px;
+$line-height: 50px;
 $button-color: darken(grey,13);
+
+$screen-sm-min: 768px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 992px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 1200px;
+$screen-md-max: ($screen-lg-min - 1);
+
+
 html, body {
   padding: 0;
   margin: 0;
@@ -13,8 +22,10 @@ html, body {
   display: block;
   background: white;
   background: -webkit-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
-  background: -moz-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
-  background: linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
+  background: -moz-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px,
+  -moz-radial-gradient(4% 50%, circle closest-corner, #f5f5f5, #f5f5f5 39%, transparent 0%);
+
+background: linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
   background-size: 100% $line-height;
   height: 75%;
   margin: 2%;
@@ -25,10 +36,37 @@ html, body {
     display: block;
     line-height: $line-height;
     border-left: 1px solid red;
-    margin-left: 10%;
     height: 97%;
     padding-left: 10px;
     white-space: normal;
+    /*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */
+    @media only screen and (min-width : 320px) {
+      margin-left:10%;
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (min-width : 480px) {
+      margin-left:9.6%
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+      margin-left:9.6%
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+      margin-left:9.4%
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+      margin-left:9.4%
+
+    }
     overflow: hidden;
     outline: 0px solid transparent;
     li {
@@ -37,7 +75,7 @@ html, body {
   }
   ul:before{
     position:absolute;
-    border-left:1px solid red;
+    border-left: 1px solid red;
     content:"";
     top: 0px;
     left: 9%;
@@ -50,11 +88,11 @@ html, body {
 }
 
 .animate-page {
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-delay: 0s;
-  -moz-animation-duration: 3s;
+  -moz-animation-duration:1s;
   -moz-animation-delay: 0s;
-  -animation-duration: 3s;
+  -animation-duration: 1s;
   -animation-delay: 0s
 }
 
