@@ -24,7 +24,12 @@ export default class NoteContainer extends React.Component {
         return this.props.notes[this.props.pageNumber] || [];
     }
 
-
+    componentDidMount(){
+        this.appendNotes();
+    }
+    componentDidUpdate(){
+        this.appendNotes();
+    }
     appendNotes() {
         console.log("Appending notes")
         if (!isEmpty(this.refs.notes)) {
@@ -46,23 +51,9 @@ export default class NoteContainer extends React.Component {
     }
 
     render() {
-        this.appendNotes();
-        let lines = this.getNotes();
         return (
             <ul id="notes" contentEditable="true" ref="notes" onInput={this.handleChange.bind(this)}>
 
-                {(()=> {
-                    if (isEmpty(lines)) {
-                        return (<li>&nbsp;</li>
-                        )
-                    }else {
-                        return (lines.map((line)=> {
-                            return(<li>{line}</li>)
-                        }))
-                    }
-
-                })()
-                }
             </ul>);
     }
 }

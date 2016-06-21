@@ -8,9 +8,21 @@ export default class NotebookPanel extends React.Component {
         super(props,context);
         this.notes=this.props.notes ||[];
         console.log('note book panel initialising '+this.notes.length);
+        this.state = {
+            uiOptions:{
+                animate:false
+            }
+        }
     }
     setDefault(){
         this.notes[this.props.pageNumber] = this.notes[this.props.pageNumber] ||[];
+    }
+    togglieAnimation(){
+        this.setState({
+            uiOptions:{
+                animate:(!this.state.animate)
+            }
+        });
     }
     nextPage() {
          this.setDefault();
@@ -40,27 +52,31 @@ export default class NotebookPanel extends React.Component {
         return (
             <div className="container-fluid">
                 <div className="row text-center">
-                    <label className="text-info">Page {this.props.pageNumber+1}</label>
+                    <label className="page-text">Page {this.props.pageNumber+1}</label>
                 </div>
                 <div className="row">
                     <NotePage updatePage={this.updatePage.bind(this)}/>
                 </div>
+                <div className="nav-footer">
                 {(()=>{
                     if(this.props.pageNumber>0){
-                        return( <div className="row col-xs-2 pull-left">
-                             <span onClick={this.previousPage.bind(this)}> <i
-                                 className="glyphicon glyphicon-arrow-left"></i> Previous</span>
+                        return( <div>
+                            <button onClick={this.previousPage.bind(this)}>
+                                <i className="glyphicon glyphicon-arrow-left"/>Previous
+                            </button>
                         </div>)
                     }
                 })()
                 }
-                <div className="row col-xs-2 pull-right">
-                    <span onClick={this.nextPage.bind(this)}>Next <i
-                        className="glyphicon glyphicon-arrow-right"></i></span>
-                </div>
-                <div className="row text-center">
-                     <label className="text-info">Page {this.props.pageNumber+1}</label>
+                <div>
+                     <label className="page-text">Page {this.props.pageNumber+1}</label>
                  </div>
+                <div>
+                    <button onClick={this.nextPage.bind(this)}>
+                        Next <i className="glyphicon glyphicon-arrow-right"/>
+                    </button>
+                </div>
+               </div>
             </div>
         )
     }

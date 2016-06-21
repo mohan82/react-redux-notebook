@@ -1,4 +1,5 @@
 $line-height: 30px;
+$button-color: darken(grey,13);
 html, body {
   padding: 0;
   margin: 0;
@@ -6,6 +7,7 @@ html, body {
 .container-fluid {
   margin-top:2em;
 }
+
 .page {
   padding: 0 !important;
   display: block;
@@ -14,8 +16,9 @@ html, body {
   background: -moz-linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
   background: linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
   background-size: 100% $line-height;
-  height: 80%;
-  margin: 5% auto 1% 5%;
+  height: 75%;
+  margin: 2%;
+  overflow: hidden;
   ul {
     font: 2em 'AmericanTypewriter', Cambria, Georgia;
     color: #282625;
@@ -23,15 +26,26 @@ html, body {
     line-height: $line-height;
     border-left: 1px solid red;
     margin-left: 10%;
-    height: 100%;
+    height: 97%;
     padding-left: 10px;
-    word-break: break-all;
     white-space: normal;
     overflow: hidden;
     outline: 0px solid transparent;
     li {
       list-style: none;
     }
+  }
+  ul:before{
+    position:absolute;
+    border-left:1px solid red;
+    content:"";
+    top: 0px;
+    left: 9%;
+    right: 4px;
+    bottom: 0px;
+    height: 97%;
+    pointer-events: none;
+    display:block;
   }
 }
 
@@ -42,4 +56,35 @@ html, body {
   -moz-animation-delay: 0s;
   -animation-duration: 3s;
   -animation-delay: 0s
+}
+
+
+.nav-footer  {
+text-align: center;
+  div {
+    display: inline-block;
+    margin: 0 auto;
+    overflow: hidden;
+    padding:10px;
+  }
+
+}
+
+button{
+  background: white;
+  border:none;
+  min-width:100px;
+  outline: none;
+  font-family: 'American Typewriter';
+  i{
+    color:#00fffa;
+    padding:10px;
+  }
+  font-size:1.5em;
+}
+
+.page-text {
+    color:#31708f;
+    font-family: 'American Typewriter';
+    font-size:1.5em;
 }
