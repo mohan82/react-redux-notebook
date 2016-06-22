@@ -10,10 +10,12 @@ let FALLBACK_STORE = {
 export default class StatePersistence {
 
     _getLocalStorage(){
-        if(localStorage){
-            return localStorage;
-        }else {
+        if(typeof localStorage==undefined
+            ||localStorage.getItem==undefined
+            ||localStorage.setItem==undefined){
             return FALLBACK_STORE;
+        }else {
+            return localStorage;
         }
     }
     persistState(state) {
