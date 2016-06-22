@@ -8,19 +8,19 @@ export default class NoteContainer extends React.Component {
     }
 
     handleChange() {
+
         let lines = []
-        console.log(this.refs.notes);
-        $(this.refs.notes).find("li").map((index, element)=> {
-            lines.push($(element).text().trim());
+        let element = this.refs.notes;
+        $(element).find("li").map((index, element)=> {
+            let unescapedString = $(element).text();
+            var escapedString = $("<div>").text(unescapedString).html();
+            lines.push(escapedString.trim());
         });
-        console.log("handling change ");
-        console.log(lines);
         this.props.updatePage(lines)
 
     }
 
     getNotes() {
-        console.log(this.props.notes);
         return this.props.notes[this.props.pageNumber] || [];
     }
 
@@ -43,7 +43,11 @@ export default class NoteContainer extends React.Component {
             }else {
                 lines.map((line)=> {
                     console.log(line);
-                    ulElement.append('<li>' + line + '</li>')
+                    if(isEmpty(line)){
+                        ulElement.append('<li>&nbsp;</li>');
+                    }else {
+                        ulElement.append('<li>' + line + '</li>')
+                    }
                 });
             }
         }

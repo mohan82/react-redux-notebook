@@ -77,7 +77,8 @@ export default class NotebookPanel extends React.Component {
                 <div className="row">
                     <div ref="notePage" className="page col-xs-10">
                         <NotePage
-                            updatePage={this.updatePage.bind(this)}/>
+                            updatePage={this.updatePage.bind(this)}
+                        nextPage={this.nextPage.bind(this)}/>
                     </div>
                 </div>
                 <div>
