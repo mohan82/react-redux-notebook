@@ -16,4 +16,5 @@ To run locally with hot reload
 ##Preview
 
 
-<iframe src='https://gfycat.com/ifr/WillingDefiantBalloonfish' frameborder='0' scrolling='no' width='640' height='' allowfullscreen></iframe>
+<iframe src='https://gfycat.com/ifr/WillingDefiantBalloonfish' frameborder='0' 
+scrolling='no' width='640' height=''  allowfullscreen="allowfullscreen"></iframe></iframe>
