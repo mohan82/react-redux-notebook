@@ -1,89 +1,97 @@
 import React from 'react';
 import NotePage from './NotePage.jsx';
+import NavigationFooter from './NavigationFooter.jsx';
+
+
 
 export default class NotebookPanel extends React.Component {
 
-    constructor(props,context) {
+    constructor(props, context) {
         console.log("Initialising Notebook Panel...")
-        super(props,context);
-        this.notes=this.props.notes ||[];
-        console.log('note book panel initialising '+this.notes.length);
-        this.state = {
-            uiOptions:{
-                animate:false
-            }
-        }
+        super(props, context);
+        this.notes = this.props.notes || [];
+        console.log('note book panel initialising ' + this.notes.length);
+        this.state =this.initState();
     }
-    setDefault(){
-        this.notes[this.props.pageNumber] = this.notes[this.props.pageNumber] ||[];
+
+    initState(){
+       return{navigationType:null,animate:false};
+
     }
-    togglieAnimation(){
-        this.setState({
-            uiOptions:{
-                animate:(!this.state.animate)
-            }
-        });
+    animate(navigationType){
+        let animatedClassName = this.getAnimationClassName(navigationType)
+        $(this.refs.notePage).addClass(animatedClassName).
+        one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+             () =>{
+                $(this.refs.notePage).removeClass(animatedClassName);
+            });
     }
+
+
+    setDefault() {
+        this.notes[this.props.pageNumber] = this.notes[this.props.pageNumber] || [];
+    }
+
     nextPage() {
-         this.setDefault();
-        console.log("next page:" +this.notes[this.props.pageNumber].length);
-        this.props.addNotes(this.props.pageNumber,this.notes[this.props.pageNumber]);
+        this.setDefault();
+        console.log("next page:" + this.notes[this.props.pageNumber].length);
+        this.props.addNotes(this.props.pageNumber, this.notes[this.props.pageNumber]);
         this.props.increment();
-        let nextPage = "/note/"+(this.props.pageNumber+1);
+        let nextPage = "/note/" + (this.props.pageNumber + 1);
+        this.animate('next');
         this.context.router.push(nextPage);
     }
-    previousPage(){
 
+    previousPage() {
         this.setDefault();
-        console.log(this.notes[this.props.pageNumber].length);
-        this.props.addNotes(this.props.pageNumber,this.notes[this.props.pageNumber]);
+        this.props.addNotes(this.props.pageNumber, this.notes[this.props.pageNumber]);
         this.props.decrement();
-        let previousPage = "/note/"+(this.props.pageNumber-1);
+        this.animate('prev');
+        let previousPage = "/note/" + (this.props.pageNumber - 1);
         this.context.router.push(previousPage);
 
     }
-    updatePage(lines){
+
+    updatePage(lines) {
         this.setDefault();
-        console.log("Updating page..."+this.notes[this.props.pageNumber].length);
-        this.notes[this.props.pageNumber]=lines;
+        console.log("Updating page..." + this.notes[this.props.pageNumber].length);
+        this.notes[this.props.pageNumber] = lines;
     }
+
+    getAnimationClassName(navigationType) {
+       if(navigationType==='prev'){
+          return ' animate-page animate rotateOutDownLeft';
+
+        } else {
+            return '  animate-page animate rotateOutUpLeft';
+        }
+    }
+
 
     render() {
         return (
             <div className="container-fluid">
                 <div className="row text-center">
-                    <label className="page-text">Page {this.props.pageNumber+1}</label>
+                    <label className="page-text">Page {this.props.pageNumber + 1}</label>
                 </div>
                 <div className="row">
-                    <NotePage updatePage={this.updatePage.bind(this)}/>
+                    <div ref="notePage" className="page col-xs-10">
+                        <NotePage
+                            updatePage={this.updatePage.bind(this)}/>
+                    </div>
                 </div>
-                <div className="nav-footer">
-                {(()=>{
-                    if(this.props.pageNumber>0){
-                        return( <div>
-                            <button onClick={this.previousPage.bind(this)}>
-                                <i className="glyphicon glyphicon-arrow-left"/>Previous
-                            </button>
-                        </div>)
-                    }
-                })()
-                }
                 <div>
-                     <label className="page-text">Page {this.props.pageNumber+1}</label>
-                 </div>
-                <div>
-                    <button onClick={this.nextPage.bind(this)}>
-                        Next <i className="glyphicon glyphicon-arrow-right"/>
-                    </button>
+                    <NavigationFooter nextPage={this.nextPage.bind(this)}
+                                      previousPage={this.previousPage.bind(this)}
+                                      pageNumber={this.props.pageNumber}/>
                 </div>
-               </div>
             </div>
         )
     }
 }
 
-NotebookPanel.contextTypes= {
+NotebookPanel.contextTypes = {
     router: function () {
-       return React.PropTypes.func.isRequired
+        return React.PropTypes.func.isRequired
     }
 }

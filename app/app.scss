@@ -93,7 +93,9 @@ background: linear-gradient(bottom, #DFE8EC 0%, white 8%) 0 57px;
   -moz-animation-duration:1s;
   -moz-animation-delay: 0s;
   -animation-duration: 1s;
-  -animation-delay: 0s
+  -animation-delay: 0;
+  z-index: 10;
+  transition-timing-function: ease-in 3s;
 }
 
 
@@ -126,3 +128,8 @@ button{
     font-family: 'American Typewriter';
     font-size:1.5em;
 }
+
+.inactive {
+  visibility:hidden;
+}
+
