@@ -16,4 +16,4 @@ To run locally with hot reload
 ##Preview
 
 
-![notebook](https://cloud.githubusercontent.com/assets/795056/16708065/565ba2e0-4629-11e6-8539-035fa426efb0.gif)
+![notebook](https://cloud.githubusercontent.com/assets/795056/16708110/8acda176-462a-11e6-8535-c9ba50bfaa99.gif)
