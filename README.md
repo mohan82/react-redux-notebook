@@ -16,5 +16,4 @@ To run locally with hot reload
 ##Preview
 
 
-![react-redux-noteook](<iframe src='https://gfycat.com/ifr/WillingDefiantBalloonfish' frameborder='0' 
-scrolling='no' width='640' height=''  allowfullscreen="allowfullscreen"></iframe></iframe>)
+![notebook](https://cloud.githubusercontent.com/assets/795056/16708065/565ba2e0-4629-11e6-8539-035fa426efb0.gif)
